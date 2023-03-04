@@ -3,6 +3,11 @@ const app = express()
 
 import productRouter from "./routes/product.js"
 import orderRouter from "./routes/order.js"
+import bodyParser from "body-parser";
+
+// setting
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // router
 app.use("/product", productRouter)
