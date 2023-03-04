@@ -6,11 +6,14 @@ import orderRouter from "./routes/order.js"
 import bodyParser from "body-parser";
 import morgan from "morgan"
 import mongoose from "mongoose";
+import dotenv from "dotenv"
+
+dotenv.config()
 
 
 // database connection
 
-const dbAddress = "mongodb+srv://imlogic20:cho1234@cluster0.h4zcfup.mongodb.net/?retryWrites=true&w=majority"
+const dbAddress = process.env.MONGODB_URL
 mongoose
     .connect(dbAddress)
     .then(() => console.log("Mongo DB Connected"))
@@ -26,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/product", productRouter)
 app.use("/order", orderRouter)
 
-const port = 4444 //문
+const port = process.env.PORT || 7000 //문
 app.listen(port, console.log("서버 started"))
 
 
