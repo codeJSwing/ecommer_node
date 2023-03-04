@@ -1,7 +1,12 @@
 import express from "express"
 const app = express()
 
-
+// request, response test
+app.use("/", (req, res) => {
+    res.json({
+        data : "dataShow"
+    })
+})
 
 
 
