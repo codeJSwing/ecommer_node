@@ -3,7 +3,16 @@ const app = express()
 
 
 
-const port = 1111 //문
+
+
+
+
+
+
+
+
+
+const port = 4444 //문
 app.listen(port, console.log("서버 started"))
 
 
