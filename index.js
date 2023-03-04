@@ -5,8 +5,19 @@ import productRouter from "./routes/product.js"
 import orderRouter from "./routes/order.js"
 import bodyParser from "body-parser";
 import morgan from "morgan"
+import mongoose from "mongoose";
+
+
+// database connection
+
+const dbAddress = "mongodb+srv://imlogic20:cho1234@cluster0.h4zcfup.mongodb.net/?retryWrites=true&w=majority"
+mongoose
+    .connect(dbAddress)
+    .then(() => console.log("Mongo DB Connected"))
+    .catch(err => console.log(err.message))
 
 // setting
+
 app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
