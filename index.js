@@ -1,21 +1,12 @@
 import express from "express"
 const app = express()
 
-// request, response test
-app.use("/", (req, res) => {
-    res.json({
-        data : "dataShow"
-    })
-})
+import productRouter from "./routes/product.js"
+import orderRouter from "./routes/order.js"
 
-
-
-
-
-
-
-
-
+// router
+app.use("/product", productRouter)
+app.use("/order", orderRouter)
 
 const port = 4444 //문
 app.listen(port, console.log("서버 started"))
